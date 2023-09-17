@@ -28,6 +28,7 @@ SELECT SW.EVENT,
  FROM V$SESSION_WAIT sw
  JOIN V$SESSION S ON sw.sid = s.sid
 WHERE S.username IS NOT NULL
+  AND sw.event = 'enq: TX - row lock contention';
 
 SELECT id
   FROM item
